@@ -395,8 +395,7 @@ As a security best practice, restrict access to the administrative `master` real
 Use the following steps to allow access to these URLs only from allowed internal IP addresses.
 
 ```
-acl is_master_realm path /realms/master
-acl is_master_realm path_beg /realms/master/
+acl is_master_realm path_reg ^/realms/master(/|$)
 http-request deny if is_master_realm !is_allowed_src
 ```
 This configuration targets requests matching the administrative paths `/realms/master` or starting with `/realms/master/`. This rule matches core management traffic (such as token requests, logins, or console lookups inside the master realm) while letting other user realm paths pass through unhindered.
