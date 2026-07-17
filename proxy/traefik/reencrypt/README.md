@@ -139,7 +139,7 @@ api:
   insecure: true
 ```
 
-Enables the Traefik dashboard and API on port 8080 without authentication. The dashboard is accessible at http://127.0.0.1:8080/dashboard/ and the API at http://127.0.0.1:8080/api/. **This must never be used in production.**
+Enables the Traefik dashboard and API on port 8080 without authentication. The dashboard is accessible at http://127.0.0.1:8080/dashboard/ and the API at http://127.0.0.1:8080/api/. **In a production environment, secure the API and dashboard with authentication and authorization.**
 
 ### keycloak.yaml — dynamic configuration:
 
