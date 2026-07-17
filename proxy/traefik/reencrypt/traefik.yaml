@@ -9,6 +9,7 @@ entryPoints:
 # Uncomment if you want to have the admin UI and admin API on a separate hostname and port.
 #  keycloak-admin:
 #    address: ":8444"
+# DEMO ONLY — remove api.insecure for production
 api:
   dashboard: true
   insecure: true

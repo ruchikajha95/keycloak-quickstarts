@@ -114,6 +114,34 @@ docker compose down
 
 ## Traefik configuration
 
+The Traefik setup is split into two files:
+
+- traefik.yaml — static configuration loaded at startup (entry points, dashboard, and providers).
+- keycloak.yaml — dynamic configuration for runtime routing rules, services, and health checks.
+
+Both files are required for this setup to work correctly.
+
+### traefik.yaml — static configuration:
+
+**Entry point for TLS traffic:**
+```yaml
+entryPoints:
+  keycloak:
+    address: ":8443"
+```
+
+Defines the entry point on port 8443 where Traefik accepts incoming HTTPS connections and re-encrypts them before forwarding to Keycloak.
+
+**Dashboard:**
+```yaml
+api:
+  insecure: true
+```
+
+Enables the Traefik dashboard on port 8080 without authentication. The dashboard is accessible at http://127.0.0.1:8080/dashboard/. **This must never be used in production.**
+
+### keycloak.yaml — dynamic configuration:
+
 The key parts of `keycloak.yaml` are explained below. The `keycloak.yaml` file contains the
 dynamic configuration — routing rules, TLS certificates, and backend transport settings.
 
