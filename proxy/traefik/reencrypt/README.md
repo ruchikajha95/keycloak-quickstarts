@@ -135,10 +135,11 @@ Defines the entry point on port 8443 where Traefik accepts incoming HTTPS connec
 **Dashboard:**
 ```yaml
 api:
+  dashboard: true
   insecure: true
 ```
 
-Enables the Traefik dashboard on port 8080 without authentication. The dashboard is accessible at http://127.0.0.1:8080/dashboard/. **This must never be used in production.**
+Enables the Traefik dashboard and API on port 8080 without authentication. The dashboard is accessible at http://127.0.0.1:8080/dashboard/ and the API at http://127.0.0.1:8080/api/. **This must never be used in production.**
 
 ### keycloak.yaml — dynamic configuration:
 
